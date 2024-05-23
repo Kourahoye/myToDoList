@@ -3,7 +3,7 @@ from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,FormView,ListView,DetailView,DeleteView,UpdateView
 from myToDoList.forms import TaskCreate
@@ -47,7 +47,7 @@ class TaskDetail(LoginRequiredMixin,DetailView):
     def get_object(self, queryset: QuerySet[Any] | None = ...) -> Model:
         slug = self.kwargs['slug']
         user = self.request.user
-        return super().get_queryset().get(user=user, slug=slug)
+        return get_object_or_404(Task,user=user, slug=slug)
         
 
 
@@ -57,11 +57,11 @@ class TaskDeleteView(LoginRequiredMixin,DeleteView):
     template_name = "myToDoList/delete.html"
     success_url = reverse_lazy ("liste")
     
-    """def get_object(self, queryset: QuerySet[Any] | None = ...) -> Model:
+    def get_object(self, queryset: QuerySet[Any] | None = ...) -> Model:
         slug = self.kwargs['slug']
         user = self.request.user
-        return super().get_queryset().get(slug=slug)
- """
+        return get_object_or_404(Task,user=user, slug=slug)
+
     
     
 
@@ -74,7 +74,7 @@ class TaskUpdateView(LoginRequiredMixin,UpdateView):
     def get_object(self, queryset: QuerySet[Any] | None = ...) -> Model:
         slug = self.kwargs['slug']
         user = self.request.user
-        return super().get_queryset().get(user=user, slug=slug)
+        return get_object_or_404(Task,user=user, slug=slug)
     
     
 

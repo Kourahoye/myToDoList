@@ -21,15 +21,14 @@
     </p>
     <p class="text-white font-bold">
         <span class="text-xl font-semibold text-red-600">Cree: </span> {{ object.created|naturaltime }} </p>
-    <form action="{% url 'delete-task' object.slug %}" method='Get' class="flex gap-4">
-      {% csrf_token %}
-      <input type='submit' class="text-white font-bold w-fit bg-red-800 ring ring-red-900 rounded
-      hover:ring hover:ring-white" value = "Delete"/>
-      <a class="text-white text-lg font-bold w-fit bg-emerald-900 ring ring-emerald-900  rounded
+    <div  class="flex gap-4">
+      <a href="{% url 'delete-task' object.slug %}" class="p-1 text-white font-bold w-fit bg-red-800 ring ring-red-900 rounded
+      hover:ring hover:ring-white"> Delete </a>
+      <a class="p-1 text-white text-lg font-bold w-fit bg-emerald-900 ring ring-emerald-900  rounded
       hover:ring hover:ring-white" href="{% url 'liste' %} "> Liste </a>
-      <a href="{% url 'update' object.slug %}"  class="text-white text-lg font-bold bg-amber-600 ring ring-amber-600  rounded
+      <a href="{% url 'update' object.slug %}"  class="p-1 text-white text-lg font-bold bg-amber-600 ring ring-amber-600  rounded
        hover:ring hover:ring-white"  value="Update"> Update </a>
-    </form>  
+    </div>  
    
 </div>
     
