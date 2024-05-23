@@ -1,0 +1,25 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ToDo List{% endblock title %}</title>
+</head>
+<body class="bg-[url('http://127.0.0.1:8000/static/images/pc.png')] bg-cover bg-fixed bg-no-repeat md:bg-[url('http://127.0.0.1:8000/static/images/todo.jpg')] md:bg-fixed md:bg-no-repeat md:bg-cover md:bg-center w-full min-w-fit">
+    <header class="flex justify-between bg-slate-600/80 p-2 m-1">
+        <p class="font-bold text-white uppercase text-3xl  p-2 w-full flex-grow ">
+            {{ user.username }}'s ToDo list
+        </p>
+        <a class="font-bold text-md font-serif md:text-xl text-red-600 uppercase flex items-center p-2" href='{% url "logout_user" %}' >logout </a>
+    </header>
+
+    <main class="container  bg-slate-800/85 p-4 m-auto w-96 border border-zinc-100 shadow-md shadow-white backdrop-blur-md backdrop-opacity-50">
+        {% block content %}    
+
+        {% endblock content %}
+    </main>
+</body>
+</html>

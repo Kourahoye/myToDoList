@@ -1,0 +1,28 @@
+{% extends 'myToDoList/index.html' %}
+
+{% block title %}
+  Creation tâche
+{% endblock title %}
+
+
+{% block content %}
+<p class=" font-bold text-white uppercase text-xl mb-2 bg-slate-600 p-2 text-center">
+  Task create
+</p>    
+<form method="post" class="flex flex-col justify-around gap-4 w-full p-2">
+    {% csrf_token %}
+    {{ form.title }}
+    <span class="font-medium bg-slate-100 text-red-600 text-sm">
+      {{ form.title.errors }}
+    </span> 
+    {{ form.content }}
+    <div class="flex gap-4 w-full">
+      <input type = "Submit" value = "Creer" class="p-1 text-white text-lg font-bold w-fit bg-sky-800 ring ring-sky-900 rounded
+      hover:ring hover:ring-white">
+      <a class="p-1 text-white text-lg font-bold w-fit bg-emerald-900 ring ring-emerald-900 g-emerald-900 rounded
+      hover:ring hover:ring-white" href="{% url 'liste' %} "> Liste </a>
+    </div>
+</form>
+
+{% endblock content %}
+    

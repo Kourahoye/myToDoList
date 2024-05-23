@@ -1,0 +1,29 @@
+{% extends 'accounts/index.html' %}
+
+{% block title %}
+        Sign up
+{% endblock %}
+{% block content %}
+<div class="flex flex-col gap-5 mt-20 min-w-fit w-full h-full p-2 border-transparent sm:w-96
+            sm:border-2 sm:border-white sm:mx-auto bg-white/50 backdrop-blur-sm">
+<h1 class="container font-bold text-red-600 text-4xl uppercase w-full m-auto text-center">S'incrire</h1>
+<form class="flex flex-col min-w-full" method="post">
+    {% csrf_token %}
+    <div>
+        <label  class="text-xl m-2 tracking-tight font-bold inline-flex" for="{{sign_up_forms.username.id}}">Nom d'utilisateur</label>
+        {{sign_up_forms.username}}
+    </div>
+    <div>
+        <label class="text-xl m-2 tracking-tight font-bold inline-flex" for="email">Email</label>
+        {{sign_up_forms.email}}
+    </div>
+    <div>
+        <label class="text-xl m-2 tracking-tight font-bold inline-flex" for="password">Mot de passe</label>
+        {{sign_up_forms.password}}
+    </div>
+    <input class="font-bold max-w-fit shadow-md text-white inline-flex mt-5 ring ring-red-100 hover:ring hover:ring-blue-300 rounded p-1
+                   hover:translate-y-[-3px] bg-gradient-to-b from-red-500 to-red-900" type="submit" value="S'inscrire✔">
+    </form>
+    <div ><span class="text-slate-950 text-lg font-semibold">Vous avez dèja un compte?:</span><a class="text-blue-800 underline" href="{% url 'login_user' %}"> Se connecter </a>  </div>             
+</div>
+{% endblock %}

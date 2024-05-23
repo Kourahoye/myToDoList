@@ -1,0 +1,36 @@
+{% extends 'myToDoList/index.html' %}
+{% load humanize %}
+{% block title %}
+  Details tâche
+{% endblock title %}
+
+
+{% block content %}
+<p class="text-red-600 font-bold text-3xl text-center uppercase bg-white mb-4 ">
+  Task detail
+</p>
+<div class="flex flex-col gap-3 justify-evenly">
+    <p class="font-bold text-white uppercase text-xl mb-2 bg-slate-600 p-2 text-center">{{ object.title }} </p>
+    <p class="text-white font-medium"><span class="text-xl font-semibold text-red-600">Details:</span><br/>{{ object.content }} </p>
+    <p class="text-white font-medium"><span class="text-xl font-semibold text-red-600">Etat: </span>
+    {% if object.done  %}
+        ✔
+    {% else %}
+        ❌
+    {% endif %}   
+    </p>
+    <p class="text-white font-bold">
+        <span class="text-xl font-semibold text-red-600">Cree: </span> {{ object.created|naturaltime }} </p>
+    <form action="{% url 'delete-task' object.slug %}" method='Get' class="flex gap-4">
+      {% csrf_token %}
+      <input type='submit' class="text-white font-bold w-fit bg-red-800 ring ring-red-900 rounded
+      hover:ring hover:ring-white" value = "Delete"/>
+      <a class="text-white text-lg font-bold w-fit bg-emerald-900 ring ring-emerald-900  rounded
+      hover:ring hover:ring-white" href="{% url 'liste' %} "> Liste </a>
+      <a href="{% url 'update' object.slug %}"  class="text-white text-lg font-bold bg-amber-600 ring ring-amber-600  rounded
+       hover:ring hover:ring-white"  value="Update"> Update </a>
+    </form>  
+   
+</div>
+    
+{% endblock content %}

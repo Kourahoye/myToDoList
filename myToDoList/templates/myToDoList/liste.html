@@ -1,0 +1,25 @@
+{% extends 'myToDoList/index.html' %}
+
+{% block title %}
+  Liste tâches
+{% endblock title %}
+
+
+{% block content %}
+<p class="text-red-600 font-bold text-3xl text-center uppercase bg-white mb-4">
+  Task List
+</p>  
+<p class="flex flex-col gap-3 justify-between border-2 border-white p-4 rounded-lg"> 
+{% for tache in taches %}
+  <a href ="{{ tache.get_absolute_url }}" class="flex text-red-600 font-medium text-md"> 
+  {% if tache.done %}
+    🟢
+  {% else %}
+    🔴
+  {% endif %}
+     {{ tache.title|upper }} </a>
+{% endfor %}
+  <a href="{% url 'create' %}" class="block mt-2 p-1 text-white text-lg font-bold w-full text-center bg-gradient-to-br from-blue-950 to-slate-900 ring-1 ring-sky-900 rounded-md
+  hover:ring hover:ring-white underline decoration-red-900 decoration-2 hover:decoration-zinc-100"> Ajouter une tache</a>
+</p>
+{% endblock content %}

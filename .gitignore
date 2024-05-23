@@ -1,0 +1,24 @@
+# Ignore Django related files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# Ignore environment-specific settings
+.env
+.venv
+.envrc
+
+# Ignore macOS metadata files
+.DS_Store
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore PyCharm settings
+.idea/
+
+# Ignore SQLite database file
+*.sqlite3

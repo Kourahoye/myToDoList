@@ -1,0 +1,23 @@
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}"> {% endcomment %}
+    {% tailwind_css %}
+    {% comment %}
+        
+    {% endcomment %}
+        
+</head>
+<body class="bg-[url('http://127.0.0.1:8000/static/images/pc.png')] bg-cover bg-fixed bg-no-repeat md:bg-[url('http://127.0.0.1:8000/static/images/todo.jpg')] md:bg-fixed md:bg-no-repeat md:bg-cover md:bg-center w-full min-w-fit">
+{% block content %}
+{% endblock %}
+<div class="flex justify-between mt-5 container m-auto">
+ <a href="" class="absolute top-2 right-2 font-bold m-1 ring ring-blue-300 rounded p-1
+           hover:ring hover:ring-blue-500 hover:translate-y-[-3px] bg-gradient-to-b from-rose-500 to-red-900 text-white">Acceuil🏠</a>
+</div>
+</body>
+</html>

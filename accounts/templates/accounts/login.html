@@ -1,0 +1,23 @@
+{% extends "accounts/index.html" %}
+
+{% block title %}
+        Login
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col gap-5 mt-20 min-w-fit w-full p-2 border-transparent sm:w-96
+            sm:border-2 sm:border-white sm:mx-auto bg-white/50 backdrop-blur-sm">
+<h1 class="container font-bold text-red-600 text-4xl uppercase w-full m-0 text-center sm:w-92 sm:m-auto">Connexion</h1>
+<form class="flex flex-col w-full" method="post">
+    {% csrf_token %}
+    <label class="text-xl m-1 font-bold inline-flex text-slate-950" for="username">Nom d'utilisateur</label>
+    <input class="w-full h-[25px] border-transparent shadow-sm ring ring-slate-300 hover:ring hover:ring-red-300 rounded"
+           type="text" id="username" name="username"><br>
+    <label class="text-xl m-1 font-bold inline-flex text-slate-950"  for="password">Mot de passe</label>
+    <input class="w-full h-[25px] border-transparent shadow-sm ring ring-slate-300 hover:ring hover:ring-red-300 rounded"
+           type="password" id="password" name="password"><br>
+    <input class="font-extrabold max-w-fit text-white inline-flex mt-5 ring ring-red-300 hover:ring hover:ring-blue-300
+             rounded shadow-sm p-1 bg-gradient-to-b from-rose-900 to-red-900 hover:translate-y-[3px]" type="submit" value="Se connecter">
+</form>
+</div>
+{% endblock %}
