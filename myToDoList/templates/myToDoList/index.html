@@ -13,7 +13,7 @@
         <p class="font-bold text-white uppercase text-3xl  p-2 w-full flex-grow ">
             {{ user.username }}'s ToDo list
         </p>
-        <a class="font-bold text-md font-serif md:text-xl text-red-600 uppercase flex items-center p-2" href='{% url "logout_user" %}' >logout </a>
+        <a class="font-bold text-sm font-serif md:text-xl text-red-600 uppercase flex items-center p-2 underline decoration-transparent hover:decoration-white will-change-auto transition-colors" href='{% url "logout_user" %}' >logout </a>
     </header>
 
     <main class="container  bg-slate-800/85 p-4 m-auto w-96 border border-zinc-100 shadow-md shadow-white backdrop-blur-md backdrop-opacity-50">
